@@ -1,0 +1,102 @@
+.camperItem {
+  padding: 24px;
+  display: flex;
+  outline: 1px solid black;
+  gap: 24px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.thumb {
+  width: 290px;
+  height: 310px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.camperImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 20%;
+}
+
+.camperInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+}
+
+.camperName {
+  font-size: 24px;
+  line-height: 1.25;
+  color: rgba(16, 24, 40, 1);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.rating_locationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.camperRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: underline;
+  color: rgba(16, 24, 40, 1);
+}
+
+.ratingIcon {
+  fill: #ffc531;
+  stroke: #ffc531;
+}
+
+.camperLocation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  color: rgba(16, 24, 40, 1);
+}
+
+.mapPinIcon {
+  fill: transparent;
+  stroke: rgba(16, 24, 40, 1);
+}
+
+.Price_FavoriteWrapper {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  top: 24px;
+  right: 24px;
+}
+
+.heartIcon {
+  fill: transparent;
+  stroke: rgba(16, 24, 40, 1);
+}
+
+.camperDescription {
+  width: 520px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(71, 84, 103, 1);
+  font-weight: 400;
+}
+
+.advantagesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}

@@ -39,6 +39,11 @@ img {
   max-width: 100%;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;

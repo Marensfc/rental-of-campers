@@ -1,0 +1,18 @@
+.advantageItemContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background-color: rgba(242, 244, 247, 1);
+}
+
+.advantageItemContainer > li {
+  width: calc((100% - 24px) / 4);
+}
+
+.icon {
+  fill: transparent;
+  stroke: rgba(16, 24, 40, 1);
+}
