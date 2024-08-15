@@ -4,12 +4,26 @@ import icons from '../../assets/icons.svg';
 
 import AdvantageItem from '../AdvantageItem/AdvantageItem';
 import ShowMoreBtn from '../ShowMoreBtn/ShowMoreBtn';
+import { useRef } from 'react';
 
 const CamperItem = () => {
+  const addToFavoriteBtnRef = useRef();
+
+  const handleAddToFavoritesBtnToggle = () => {
+    const heartIcon = addToFavoriteBtnRef.current.firstElementChild;
+    heartIcon.classList.toggle(`${css.addedToFavorites}`);
+  };
+
   return (
     <li className={css.camperItem}>
       <div className={css.thumb}>
-        <img src={camper} alt="asd" className={css.camperImg} />
+        <img
+          src={
+            'https://www.travellers-autobarnrv.com/wp-content/uploads/2022/05/15-2.jpg'
+          }
+          alt="asd"
+          className={css.camperImg}
+        />
       </div>
       <div className={css.camperInfoWrapper}>
         <p className={css.camperName}>Mavericks</p>
@@ -29,9 +43,16 @@ const CamperItem = () => {
         </div>
         <p className={css.Price_FavoriteWrapper}>
           €8000.00{' '}
-          <svg width="24" height="24" className={css.heartIcon}>
-            <use href={`${icons}#heart`}></use>
-          </svg>
+          <button
+            type="button"
+            className={css.favoriteBtn}
+            onClick={handleAddToFavoritesBtnToggle}
+            ref={addToFavoriteBtnRef}
+          >
+            <svg width="24" height="24" className={css.heartIcon}>
+              <use href={`${icons}#heart`}></use>
+            </svg>
+          </button>
         </p>
         <p className={css.camperDescription}>
           Embrace simplicity and freedom with the Mavericks panel truck, an
@@ -40,7 +61,7 @@ const CamperItem = () => {
         </p>
         <ul className={css.advantagesList}>
           <li>
-            <AdvantageItem iconName={'users'} width={20} height={20}>
+            <AdvantageItem iconName={'users'} width={20} height={20} onlyFill>
               2 adults
             </AdvantageItem>
           </li>
@@ -50,7 +71,7 @@ const CamperItem = () => {
             </AdvantageItem>
           </li>
           <li>
-            <AdvantageItem iconName={'fuel'} width={20} height={20}>
+            <AdvantageItem iconName={'fuel'} width={20} height={20} onlyFill>
               Petrol
             </AdvantageItem>
           </li>

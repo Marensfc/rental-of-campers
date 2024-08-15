@@ -16,3 +16,8 @@
   fill: transparent;
   stroke: rgba(16, 24, 40, 1);
 }
+
+.onlyFill {
+  fill: rgba(16, 24, 40, 1);
+  stroke: none;
+}
