@@ -6,11 +6,7 @@ const Location = () => {
     <div className={css.locationWrapper}>
       <label className={css.locationLabel}>Location</label>
       <div className={css.locationInputWrapper}>
-        <input
-          type="text"
-          className={css.locationInput}
-          value="Ukraine, Kyiv"
-        />
+        <input type="text" className={css.locationInput} placeholder="City" />
         <svg width={18} height={20} className={css.mapPinIcon}>
           <use href={`${icons}#map-pin`}></use>
         </svg>

@@ -1,0 +1,86 @@
+.filtersForm {
+  color: rgba(16, 24, 40, 1);
+}
+
+.formTitle {
+  font-weight: 500;
+  color: rgba(71, 84, 103, 1);
+  margin-bottom: 14px;
+}
+
+.filtersEquipmentText,
+.filtersTypeText {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.003em;
+}
+
+.filtersEquipmentText::after,
+.filtersTypeText::after {
+  content: '';
+  display: block;
+  width: 360px;
+  height: 1px;
+  background-color: rgba(16, 24, 40, 0.1);
+  margin: 24px 0;
+}
+
+.checkboxesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 360px;
+  margin-bottom: 32px;
+}
+
+.inputWrapper {
+  width: calc((100% - 20px) / 3);
+}
+
+.checbox_Radio_IconContainer {
+  display: block;
+  width: 112px;
+  height: 95px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.25;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.icon {
+  fill: transparent;
+  stroke: rgba(16, 24, 40, 1);
+}
+
+.iconOnlyFill {
+  fill: rgba(16, 24, 40, 1);
+  stroke: none;
+}
+
+.radioButtonsWrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 64px;
+}
+
+.btnSearch {
+  padding: 16px 60px;
+  background-color: rgba(228, 72, 72, 1);
+  border-radius: 200px;
+  font-family: Inter;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 1);
+  transition: background-color 150ms ease-in-out;
+}
+
+.btnSearch:hover {
+  background-color: rgba(216, 67, 67, 1);
+}

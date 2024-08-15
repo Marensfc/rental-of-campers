@@ -4,6 +4,7 @@
   width: 360px;
   gap: 8px;
   position: relative;
+  margin-bottom: 32px;
 }
 
 .locationLabel {
@@ -25,9 +26,15 @@
   width: 100%;
 }
 
+.locationInput::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(16, 24, 40, 0.6);
+}
+
 .mapPinIcon {
   fill: transparent;
-  stroke: rgba(16, 24, 40, 1);
+  stroke: rgba(16, 24, 40, 0.6);
   position: absolute;
   top: 16px;
   left: 18px;

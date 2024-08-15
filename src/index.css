@@ -18,13 +18,23 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
   margin: 0;
 }
 
-a {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
   color: inherit;
+  color: inherit;
+  font-family: inherit;
 }
 
 ul,
@@ -42,12 +52,32 @@ img {
 button {
   cursor: pointer;
   border: none;
+  font-family: inherit;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 0;
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 64px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* @media screen and (min-width: 768px) {
