@@ -4,28 +4,37 @@ import { useRef } from 'react';
 import clsx from 'clsx';
 import { isAddedToFavorite } from '../../utils/isAddedToFavorite';
 import { addCardToLocalStorage } from '../../utils/addCardToLocalStorage';
-import { removeCardFromLocalStorage } from '../../utils/removeCardFormLocalStorage';
+import { removeCardFromLocalStorage } from '../../utils/removeCardFromLocalStorage';
+import { useLocation } from 'react-router-dom';
 
 import AdvantageItem from '../advantage-item/AdvantageItem';
 import ShowMoreBtn from '../show-more-btn/ShowMoreBtn';
 
+// openModal,
+//   id,
+//   name,
+//   price,
+//   rating,
+//   reviews,
+//   location,
+//   description,
+//   previewImg,
+//   gallery,
+//   vehicleForm,
+//   mainAdvantages,
+//   additionalAdvantages,
+//   vehicleDetails,
+//   handleRemoveItem,
+
 const CamperItem = ({
-  id,
-  name,
-  price,
-  rating,
-  reviews,
-  location,
-  description,
-  previewImg,
-  gallery,
-  vehicleForm,
-  mainAdvantages,
-  additionalAdvantages,
-  vehicleDetails,
+  openModal,
   handleRemoveItem,
+  requiredInfo,
+  requiredAdvertAdvantages,
+  allAdvertInfo,
 }) => {
   const addToFavoriteBtnRef = useRef();
+  const pageLocation = useLocation();
 
   const handleAddToFavoritesBtnToggle = () => {
     const heartIcon = addToFavoriteBtnRef.current.firstElementChild;
@@ -34,52 +43,47 @@ const CamperItem = ({
     const isFavorite = heartIcon.classList.contains(`${css.addedToFavorites}`);
 
     if (isFavorite) {
-      const data = {
-        id,
-        name,
-        price,
-        rating,
-        reviews,
-        location,
-        description,
-        previewImg,
-        gallery,
-        vehicleForm,
-        mainAdvantages,
-        additionalAdvantages,
-        vehicleDetails,
-      };
-      addCardToLocalStorage(data);
+      addCardToLocalStorage({
+        requiredInfo,
+        requiredAdvertAdvantages,
+        allAdvertInfo,
+      });
     }
     if (!isFavorite) {
-      removeCardFromLocalStorage(id);
-      handleRemoveItem(id);
+      removeCardFromLocalStorage(requiredInfo.id);
+      if (pageLocation.pathname === '/favorites') {
+        handleRemoveItem(requiredInfo.id);
+      }
     }
   };
 
   return (
     <li className={css.camperItem}>
       <div className={css.thumb}>
-        <img src={previewImg} alt="camper" className={css.camperImg} />
+        <img
+          src={requiredInfo.previewImg}
+          alt="camper"
+          className={css.camperImg}
+        />
       </div>
       <div className={css.camperInfoWrapper}>
-        <p className={css.camperName}>{name}</p>
+        <p className={css.camperName}>{requiredInfo.name}</p>
         <div className={css.rating_locationWrapper}>
           <p className={css.camperRating}>
             <svg width="16" height="16" className={css.ratingIcon}>
               <use href={`${icons}#rating`}></use>
             </svg>{' '}
-            {rating}({reviews.length} reviews)
+            {requiredInfo.rating}({requiredInfo.reviews.length} reviews)
           </p>
           <p className={css.camperLocation}>
             <svg width="16" height="16" className={css.mapPinIcon}>
               <use href={`${icons}#map-pin`}></use>
             </svg>
-            {location}
+            {requiredInfo.location}
           </p>
         </div>
         <p className={css.Price_FavoriteWrapper}>
-          €{`${price}.00`}{' '}
+          €{`${requiredInfo.price}.00`}{' '}
           <button
             type="button"
             className={css.favoriteBtn}
@@ -91,26 +95,26 @@ const CamperItem = ({
               height="24"
               className={clsx(
                 css.heartIcon,
-                isAddedToFavorite(id) && css.addedToFavorites
+                isAddedToFavorite(requiredInfo.id) && css.addedToFavorites
               )}
             >
               <use href={`${icons}#heart`}></use>
             </svg>
           </button>
         </p>
-        <p className={css.camperDescription}>{description}</p>
+        <p className={css.camperDescription}>{requiredInfo.description}</p>
         <ul className={css.advantagesList}>
-          {Object.keys(mainAdvantages).map((advantage, index) => (
+          {Object.keys(requiredAdvertAdvantages).map((advantage, index) => (
             <AdvantageItem
               key={index}
               iconName={advantage}
               width={20}
               height={20}
             >
-              {typeof mainAdvantages[advantage] === 'number' &&
-                `${mainAdvantages[advantage]} ${advantage}`}
-              {typeof mainAdvantages[advantage] === 'string' &&
-                mainAdvantages[advantage]}
+              {typeof requiredAdvertAdvantages[advantage] === 'number' &&
+                `${requiredAdvertAdvantages[advantage]} ${advantage}`}
+              {typeof requiredAdvertAdvantages[advantage] === 'string' &&
+                requiredAdvertAdvantages[advantage]}
             </AdvantageItem>
           ))}
           {/* <li>
@@ -154,7 +158,7 @@ const CamperItem = ({
             </li>
           )} */}
         </ul>
-        <ShowMoreBtn />
+        <ShowMoreBtn openModal={openModal} />
       </div>
     </li>
   );

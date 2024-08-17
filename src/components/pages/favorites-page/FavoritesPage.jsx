@@ -9,7 +9,9 @@ const FavoritesPage = () => {
   );
 
   const removeItemFromFavorites = id => {
-    const newItems = favoriteAdverts.filter(advert => advert.id !== id);
+    const newItems = favoriteAdverts.filter(
+      advert => advert.requiredInfo.id !== id
+    );
     setFavoriteAdverts(newItems);
   };
 
@@ -18,47 +20,27 @@ const FavoritesPage = () => {
       {favoriteAdverts.length > 0 ? (
         favoriteAdverts.map(advert => (
           <CamperItem
-            key={advert.id}
-            id={advert.id}
-            name={advert.name}
-            price={advert.price}
-            rating={advert.rating}
-            reviews={advert.reviews}
-            location={advert.location}
-            description={advert.description}
-            previewImg={advert.previewImg}
-            gallery={advert.gallery}
-            vehicleForm={advert.form}
-            mainAdvantages={{
-              adults: advert.adults,
-              children: advert.children,
-              AC: advert.mainAdvantages.AC,
+            key={advert.requiredInfo.id}
+            requiredInfo={{
+              id: advert.requiredInfo.id,
+              name: advert.requiredInfo.name,
+              previewImg: advert.requiredInfo.previewImg,
+              price: advert.requiredInfo.price,
+              rating: advert.requiredInfo.rating,
+              reviews: advert.requiredInfo.reviews,
+              location: advert.requiredInfo.location,
+              description: advert.requiredInfo.description,
+            }}
+            requiredAdvertAdvantages={{
+              adults: advert.requiredInfo.adults,
+              airConditioner: advert.requiredAdvertAdvantages.airConditioner,
               transmission: advert.transmission,
               engine: advert.engine,
-              kitchen: advert.mainAdvantages.kitchen,
-              TV: advert.mainAdvantages.TV,
-              shower: advert.mainAdvantages.shower,
-              beds: advert.mainAdvantages.beds,
+              kitchen: advert.requiredAdvertAdvantages.kitchen,
+              TV: advert.requiredAdvertAdvantages.TV,
+              shower: advert.requiredAdvertAdvantages.shower,
             }}
-            additionAdvantages={{
-              airConditioner: advert.mainAdvantages.AC,
-              bathroom: advert.mainAdvantages.bathroom,
-              CD: advert.mainAdvantages.CD,
-              radio: advert.mainAdvantages.radio,
-              toilet: advert.mainAdvantages.toilet,
-              freezer: advert.mainAdvantages.freezer,
-              hob: advert.mainAdvantages.hob,
-              microwave: advert.mainAdvantages.microwave,
-            }}
-            vehicleDetails={{
-              length: advert.length,
-              width: advert.width,
-              height: advert.height,
-              tank: advert.tank,
-              consumption: advert.consumption,
-              gas: advert.mainAdvantages.gas,
-              water: advert.mainAdvantages.water,
-            }}
+            allAdvertInfo={{ ...advert }}
             handleRemoveItem={removeItemFromFavorites}
           />
         ))
