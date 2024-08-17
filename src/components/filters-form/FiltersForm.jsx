@@ -24,7 +24,7 @@ const FiltersForm = () => {
           <label htmlFor="checkAutomaticId">
             <span className={css.checbox_Radio_IconContainer}>
               <svg width={32} height={32} className={css.icon}>
-                <use href={`${icons}#gear-box`}></use>
+                <use href={`${icons}#transmission`}></use>
               </svg>
               Automatic
             </span>
@@ -100,7 +100,7 @@ const FiltersForm = () => {
           <label htmlFor="radio-fullyIntegrated-id">
             <span className={css.checbox_Radio_IconContainer}>
               <svg width={32} height={32} className={css.iconOnlyFill}>
-                <use href={`${icons}#fully-integrated`}></use>
+                <use href={`${icons}#fullyIntegrated`}></use>
               </svg>
               Fully Integrated
             </span>

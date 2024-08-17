@@ -59,21 +59,45 @@ const CamperList = () => {
         {adverts.map(advert => (
           <CamperItem
             key={advert._id}
+            id={advert._id}
             name={advert.name}
             price={advert.price}
-            previewImg={advert.gallery[0]}
             rating={advert.rating}
+            reviews={advert.reviews}
             location={advert.location}
             description={advert.description}
-            reviewsCount={advert.reviews.length}
-            features={{
+            previewImg={advert.gallery[0]}
+            gallery={advert.gallery}
+            vehicleForm={advert.form}
+            mainAdvantages={{
               adults: advert.adults,
+              children: advert.children,
+              AC: advert.details.airConditioner,
               transmission: advert.transmission,
               engine: advert.engine,
               kitchen: advert.details.kitchen,
-              beds: advert.details.beds,
               TV: advert.details.TV,
               shower: advert.details.shower,
+              beds: advert.details.beds,
+            }}
+            additionAdvantages={{
+              airConditioner: advert.details.airConditoner,
+              bathroom: advert.details.bathroom,
+              CD: advert.details.CD,
+              radio: advert.details.radio,
+              toilet: advert.details.toilet,
+              freezer: advert.details.freezer,
+              hob: advert.details.hob,
+              microwave: advert.details.microwave,
+            }}
+            vehicleDetails={{
+              length: advert.length,
+              width: advert.width,
+              height: advert.height,
+              tank: advert.tank,
+              consumption: advert.consumption,
+              gas: advert.details.gas,
+              water: advert.details.water,
             }}
           />
         ))}

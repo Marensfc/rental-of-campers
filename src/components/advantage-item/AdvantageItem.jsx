@@ -10,20 +10,20 @@ const AdvantageItem = ({
   onlyFill,
   uppercase,
 }) => {
-  const isContainNumber = Number(children.slice(0, 1));
+  // const isContainNumber = Number(children[0].slice(0, 1));
 
   return (
     <span
       className={clsx(
-        css.advantageItemContainer,
-        isContainNumber ? css.lowercase : css.capitalize,
-        uppercase && css.uppercase
+        css.advantageItemContainer
+        // isContainNumber ? css.lowercase : css.capitalize
       )}
     >
       <svg
         width={width}
         height={height}
-        className={clsx(onlyFill ? [css.onlyFill] : [css.icon])}
+        className={clsx(css.icon)}
+        // className={clsx(onlyFill ? [css.onlyFill] : [css.icon])}
       >
         <use href={`${icons}#${iconName}`}></use>
       </svg>

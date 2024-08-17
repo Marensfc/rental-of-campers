@@ -1,0 +1,16 @@
+.favoritesList {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.screenSaver {
+  font-weight: 500;
+  font-size: 40px;
+  text-align: center;
+}
+
+.catalogPageLink {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
