@@ -4,6 +4,8 @@
   gap: 24px;
   position: relative;
   justify-content: space-between;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 20px;
 }
 
 .thumb {

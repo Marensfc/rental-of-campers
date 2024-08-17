@@ -1,0 +1,36 @@
+.camperListWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.camperList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.camperList::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgb(60, 58, 58);
+}
+
+.camperList::-webkit-scrollbar-track {
+  background: rgb(109, 112, 109);
+}
+
+.camperList::-webkit-scrollbar-thumb {
+  background: rgb(60, 58, 58);
+}
+
+.camperList::-webkit-scrollbar-thumb:hover {
+  background: rgb(60, 58, 58);
+}
+
+.camperList::-webkit-scrollbar-button {
+  display: none;
+}

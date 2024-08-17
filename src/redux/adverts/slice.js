@@ -3,6 +3,7 @@ import { fetchAdverts } from './operations';
 
 const ADVERTS_INITIAL_STATE = {
   items: [],
+  totalPages: null,
   isLoading: false,
   error: null,
 };
@@ -12,17 +13,24 @@ const advertsSlice = createSlice({
   initialState: ADVERTS_INITIAL_STATE,
   extraReducers: builder => {
     builder.addCase(fetchAdverts.pending, state => {
-      state.items = [];
       state.isLoading = true;
       state.error = null;
     }),
       builder.addCase(fetchAdverts.fulfilled, (state, action) => {
-        state.items = action.payload;
+        const isFirstPage = action.payload.isFirstPage;
+        if (isFirstPage) {
+          state.items = action.payload.adverts;
+          state.totalPages = action.payload.totalPages -= 1;
+        }
+        if (!isFirstPage) {
+          state.items = state.items.concat(action.payload.adverts);
+          state.totalPages -= 1;
+        }
         state.isLoading = false;
         state.error = null;
       }),
       builder.addCase(fetchAdverts.rejected, (state, action) => {
-        state.items = action.payload;
+        state.items = [];
         state.isLoading = false;
         state.error = action.payload;
       });

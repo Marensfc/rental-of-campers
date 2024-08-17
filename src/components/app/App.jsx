@@ -1,9 +1,9 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from '../Layout/SharedLayout/SharedLayout';
-import HomePage from '../pages/HomePage/HomePage';
-import CatalogPage from '../pages/CatalogPage/CatalogPage';
-import FavoritesPage from '../pages/FavoritesPage/FavoritesPage';
+import SharedLayout from '../layout/shared-layout/SharedLayout';
+import HomePage from '../pages/home-page/HomePage';
+import CatalogPage from '../pages/catalog-page/CatalogPage';
+import FavoritesPage from '../pages/favorites-page/FavoritesPage';
 
 function App() {
   return (

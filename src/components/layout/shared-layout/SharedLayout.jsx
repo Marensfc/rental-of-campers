@@ -1,6 +1,6 @@
 import css from './Layout.module.css';
 import '../../../index.css';
-import Header from '../../Header/Header';
+import Header from '../../header/Header';
 
 const SharedLayout = ({ children }) => {
   return (

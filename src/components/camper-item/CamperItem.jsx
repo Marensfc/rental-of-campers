@@ -1,8 +1,8 @@
 import css from './CamperItem.module.css';
 import icons from '../../assets/icons.svg';
 
-import AdvantageItem from '../AdvantageItem/AdvantageItem';
-import ShowMoreBtn from '../ShowMoreBtn/ShowMoreBtn';
+import AdvantageItem from '../advantage-item/AdvantageItem';
+import ShowMoreBtn from '../show-more-btn/ShowMoreBtn';
 import { useRef } from 'react';
 
 const CamperItem = ({
