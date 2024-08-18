@@ -1,0 +1,43 @@
+.features_form_wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.advantagesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 44px;
+}
+
+.detailsText {
+  color: rgba(16, 24, 40, 1);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* text-align: left;
+  position: relative;
+  border-collapse: collapse;
+  background-color: #f6f6f6;
+  width: 100%;
+  display: block; */
+}
+
+.tableField {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tableField > p {
+  color: rgba(16, 24, 40, 1);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+}

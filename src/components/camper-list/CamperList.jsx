@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { fetchAdverts } from '../../redux/adverts/operations';
 import { selectAdverts, selectIsLoading } from '../../redux/adverts/selectors';
+import { useModal } from '../../hooks/useModal';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,9 +13,6 @@ import CamperItem from '../camper-item/CamperItem';
 import LoadMoreBtn from '../load-more-btn/LoadMoreBtn';
 import Loader from '../loader/Loader';
 import ModalDetailedInfo from '../modal-detailed-info/ModalDetailedInfo';
-import { useModal } from '../../hooks/useModal';
-
-import { sortAdvertInfo } from '../../utils/sortAdvertInfo';
 
 const CamperList = () => {
   const { isOpen, openModal, closeModal } = useModal();
@@ -27,6 +25,13 @@ const CamperList = () => {
   const [page, setPage] = useState(1);
   let limit = 4;
   let totalPagesCount = useRef();
+
+  const [currentAdvertInfo, setCurrentAdvertInfo] = useState(null);
+
+  const openModalAndSetAdvertInfo = advertInfo => {
+    setCurrentAdvertInfo(advertInfo);
+    openModal();
+  };
 
   useEffect(() => {
     const load = async () => {
@@ -71,7 +76,8 @@ const CamperList = () => {
           return (
             <CamperItem
               key={advert._id}
-              openModal={openModal}
+              // openModal={openModal}
+              setAdvertInfo={openModalAndSetAdvertInfo}
               requiredInfo={{
                 id: advert._id,
                 name: advert.name,
@@ -146,7 +152,12 @@ const CamperList = () => {
       {showBtn && isLoading === false && (
         <LoadMoreBtn increasePageFunction={() => setPage(page + 1)} />
       )}
-      {/* <ModalDetailedInfo isOpen={isOpen} closeModal={closeModal} detailedInfo /> */}
+      <ModalDetailedInfo
+        isOpen={isOpen}
+        closeModal={closeModal}
+        advertInfo={currentAdvertInfo}
+        setAdvertInfo={setCurrentAdvertInfo}
+      />
       <ToastContainer
         position="top-right"
         autoClose={3500}

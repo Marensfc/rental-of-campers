@@ -32,7 +32,11 @@
   line-height: 1.25;
   color: rgba(16, 24, 40, 1);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 350px;
 }
 
 .rating_locationWrapper {
@@ -111,4 +115,19 @@
   flex-wrap: wrap;
   gap: 8px;
   margin: 24px 0;
+}
+
+.showMoreBtn {
+  padding: 16px 40px;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: rgba(228, 72, 72, 1);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 200px;
+  text-align: center;
+  transition: background-color 150ms ease-in-out;
+}
+
+.showMoreBtn:hover {
+  background-color: rgba(216, 67, 67, 1);
 }

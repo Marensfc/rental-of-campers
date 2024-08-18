@@ -1,0 +1,21 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.text {
+  font-size: 20px;
+}
+
+.greeting {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.homePage ul {
+  list-style: circle;
+  font-size: 20px;
+}

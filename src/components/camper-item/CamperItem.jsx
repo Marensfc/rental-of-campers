@@ -7,8 +7,9 @@ import { addCardToLocalStorage } from '../../utils/addCardToLocalStorage';
 import { removeCardFromLocalStorage } from '../../utils/removeCardFromLocalStorage';
 import { useLocation } from 'react-router-dom';
 
+import { sortAdvantages } from '../../utils/sortAdvantages';
+
 import AdvantageItem from '../advantage-item/AdvantageItem';
-import ShowMoreBtn from '../show-more-btn/ShowMoreBtn';
 
 // openModal,
 //   id,
@@ -27,7 +28,9 @@ import ShowMoreBtn from '../show-more-btn/ShowMoreBtn';
 //   handleRemoveItem,
 
 const CamperItem = ({
-  openModal,
+  setAdvertInfo,
+  // openModal,
+  // setAdvertInfo,
   handleRemoveItem,
   requiredInfo,
   requiredAdvertAdvantages,
@@ -57,6 +60,8 @@ const CamperItem = ({
     }
   };
 
+  console.log('all info:', allAdvertInfo);
+
   return (
     <li className={css.camperItem}>
       <div className={css.thumb}>
@@ -73,7 +78,7 @@ const CamperItem = ({
             <svg width="16" height="16" className={css.ratingIcon}>
               <use href={`${icons}#rating`}></use>
             </svg>{' '}
-            {requiredInfo.rating}({requiredInfo.reviews.length} reviews)
+            {requiredInfo.rating}({requiredInfo.reviews.length} Reviews)
           </p>
           <p className={css.camperLocation}>
             <svg width="16" height="16" className={css.mapPinIcon}>
@@ -104,61 +109,29 @@ const CamperItem = ({
         </p>
         <p className={css.camperDescription}>{requiredInfo.description}</p>
         <ul className={css.advantagesList}>
-          {Object.keys(requiredAdvertAdvantages).map((advantage, index) => (
-            <AdvantageItem
-              key={index}
-              iconName={advantage}
-              width={20}
-              height={20}
-            >
-              {typeof requiredAdvertAdvantages[advantage] === 'number' &&
-                `${requiredAdvertAdvantages[advantage]} ${advantage}`}
-              {typeof requiredAdvertAdvantages[advantage] === 'string' &&
-                requiredAdvertAdvantages[advantage]}
-            </AdvantageItem>
-          ))}
-          {/* <li>
-            <AdvantageItem iconName={'users'} width={20} height={20} onlyFill>
-              {features.adults} adults
-            </AdvantageItem>
-          </li>
-          <li>
-            <AdvantageItem iconName={'gear-box'} width={20} height={20}>
-              {features.transmission}
-            </AdvantageItem>
-          </li>
-          <li>
-            <AdvantageItem iconName={'fuel'} width={20} height={20} onlyFill>
-              {features.engine}
-            </AdvantageItem>
-          </li>
-          <li>
-            <AdvantageItem iconName={'kitchen'} width={20} height={20}>
-              Kitchen
-            </AdvantageItem>
-          </li>
-          <li>
-            <AdvantageItem iconName={'bed'} width={20} height={20}>
-              {features.beds} beds
-            </AdvantageItem>
-          </li>
-          {features.TV !== 0 && (
-            <li>
-              <AdvantageItem iconName={'TV'} width={20} height={20} uppercase>
-                {features.TV} TV
+          {Object.keys(sortAdvantages(requiredAdvertAdvantages)).map(
+            (advantage, index) => (
+              <AdvantageItem
+                key={index}
+                iconName={advantage}
+                width={20}
+                height={20}
+              >
+                {typeof requiredAdvertAdvantages[advantage] === 'number' &&
+                  `${requiredAdvertAdvantages[advantage]} ${advantage}`}
+                {typeof requiredAdvertAdvantages[advantage] === 'string' &&
+                  requiredAdvertAdvantages[advantage]}
               </AdvantageItem>
-            </li>
+            )
           )}
-          {false}
-          {features.shower !== 0 && (
-            <li>
-              <AdvantageItem iconName={'shower'} width={20} height={20}>
-                {features.shower} shower
-              </AdvantageItem>
-            </li>
-          )} */}
         </ul>
-        <ShowMoreBtn openModal={openModal} />
+        <button
+          type="button"
+          className={css.showMoreBtn}
+          onClick={() => setAdvertInfo(allAdvertInfo)}
+        >
+          Show more
+        </button>
       </div>
     </li>
   );
