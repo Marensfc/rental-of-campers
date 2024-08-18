@@ -15,8 +15,8 @@ const HomePage = () => {
         </li>
         <li>
           <p>
-            Look at reviews and detailed information by clicking on the seam sea
-            button.
+            Look at reviews and detailed information by clicking on the show
+            more button.
           </p>
         </li>
         <li>

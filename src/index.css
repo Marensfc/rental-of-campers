@@ -80,17 +80,3 @@ input {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
-/* @media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 0 15px;
-  }
-}
-
-@media screen and (min-width: 1156px) {
-  .container {
-    max-width: 1156px;
-    padding: 0 15px;
-  }
-} */

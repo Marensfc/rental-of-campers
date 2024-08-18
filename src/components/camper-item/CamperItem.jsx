@@ -11,26 +11,8 @@ import { sortAdvantages } from '../../utils/sortAdvantages';
 
 import AdvantageItem from '../advantage-item/AdvantageItem';
 
-// openModal,
-//   id,
-//   name,
-//   price,
-//   rating,
-//   reviews,
-//   location,
-//   description,
-//   previewImg,
-//   gallery,
-//   vehicleForm,
-//   mainAdvantages,
-//   additionalAdvantages,
-//   vehicleDetails,
-//   handleRemoveItem,
-
 const CamperItem = ({
   setAdvertInfo,
-  // openModal,
-  // setAdvertInfo,
   handleRemoveItem,
   requiredInfo,
   requiredAdvertAdvantages,

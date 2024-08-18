@@ -40,14 +40,6 @@ const BookingForm = () => {
           placeholder="Email"
         />
         <span className={css.datePickerToggleContainer}>
-          {/* <Field
-            type="text"
-            name="booking-date"
-            onFocus={e => (e.target.type = 'date')}
-            onBlur={e => (e.target.type = 'text')}
-            className={css.bookingDateInput}
-            placeholder="Booking date"
-          /> */}
           <DatePicker
             className={css.bookingDateInput}
             onChange={handleChangeDate}
@@ -62,9 +54,6 @@ const BookingForm = () => {
               </svg>
             }
           />
-          {/* <svg width={20} height={20} className={css.datePickerIcon}>
-            <use href={`${icons}#booking-date`}></use>
-          </svg> */}
         </span>
         <Field
           as="textarea"
@@ -72,8 +61,6 @@ const BookingForm = () => {
           className={css.inputComment}
           placeholder="Comment"
         />
-        {/* <ErrorMessage name="email" component="div" /> */}
-        {/* <ErrorMessage name="password" component="div" /> */}
         <button type="submit" className={css.sendBtn}>
           Send
         </button>

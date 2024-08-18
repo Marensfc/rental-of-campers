@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import Features from '../features/Features';
 import Reviews from '../reviews/Reviews';
 import { sortDetailedInfo } from '../../utils/sortAdvantages';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 const customStyles = {
   content: {

@@ -22,12 +22,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  /* text-align: left;
-  position: relative;
-  border-collapse: collapse;
-  background-color: #f6f6f6;
-  width: 100%;
-  display: block; */
 }
 
 .tableField {

@@ -3,21 +3,7 @@ import css from './Features.module.css';
 import AdvantageItem from '../advantage-item/AdvantageItem';
 import BookingForm from '../booking-form/BookingForm';
 
-const advantages = [
-  'gas',
-  'water',
-  'children',
-  'radio',
-  'hob',
-  'microwave',
-  'freezer',
-  'engine',
-  'CD',
-];
-
 const Features = ({ detailedInfo }) => {
-  console.log(detailedInfo);
-
   return (
     <div className={css.features_form_wrapper}>
       <div style={{ width: '430px' }}>
